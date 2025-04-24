@@ -1,6 +1,32 @@
-ls -ltr             ----------------- check avilable files and folders
-pwd                 -------------------- Print Working directorry
-cd                  --------------- Change Directory
-cat <fileNmae>      ---------- check content in the file 
+ls -ltr              ----------------- check avilable files and folders
+pwd                  -------------------- Print Working directorry
+cd                   --------------- Change Directory
+cd ..                ------------- change directory to previous directory
+cat <fileNmae>       ---------- check content in the file 
 cat yum.log | less   ----------show starting page and if you want to view next page press Enter
+cat yum.log | more   --------- help to see content of page
+date                  --------------show current date and time
+man date              ----change date 
+cp file1 /tmp/new     ----copy file
+cp -p file1 /tmp/new   ---permission and ownership remains same while copying the files
+mv file1 /tmp/new      -----move file
+mv file1 file2         ---- rename the file
+rm file1               ---- remove file
+rm -f file1            ----- remove file forcefully
+mkdir directory1       -----create directory
+touch file1            ------create empty file
+cp -pr directory1 /tmp/new          ----- copy directory with same permissions
+rmdir directory1                 ---- remove directory
+rm -rf directory2                ---- remove non empty directory
+file file1             ------- using file commands we can check file type
+man <command>          ------ command manual
+cat <filename> | wc -l    --- check no of lines in file
+cat <filename> | wc -w    --- check no of words in file
+cat <filename> | wc -c    ---- check no of charactors in file
+ln filename filename-hard    ---- crete hardlink
+ln -s filename filename-soft   ---- create softlink
+tail -n <filename>           ------ only show last "n" lines from file
+head -n <filename>           ----- only shows first "n" lines from file
+
+
 
