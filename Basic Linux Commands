@@ -1,1 +1,6 @@
+ls -ltr             ----------------- check avilable files and folders
+pwd                 -------------------- Print Working directorry
+cd                  --------------- Change Directory
+cat <fileNmae>      ---------- check content in the file 
+cat yum.log | less   ----------show starting page and if you want to view next page press Enter
 
