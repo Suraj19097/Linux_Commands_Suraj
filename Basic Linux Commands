@@ -27,6 +27,22 @@ ln filename filename-hard    ---- crete hardlink
 ln -s filename filename-soft   ---- create softlink
 tail -n <filename>           ------ only show last "n" lines from file
 head -n <filename>           ----- only shows first "n" lines from file
+grep error access.log        ------ used to search error keyword in file (case sensitive)
+grep -i error access.log        ------- used to search error keyword in file ( case insensitive)
+grep -ci error access.log       ----- count of matched pattern
+grep -i error *                 ---- check search errror keyword (pattern) in all files avilable in current directory
+grep -w error access.log        ---- chevk error word in file 
+grep -n "error" access.log      ----- printed pattern with line number 
+grep -v error access.log        ---- print only lines where pattern is not matched
+grep "^error" access.log         --print lines only starting with pattern 
+grep "error.$" access.log        ----print lines ending with this pattern
+grep ".$" access.log             ---- print lines ending with .
+
+
+
+
+
+
 
 
 
