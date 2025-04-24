@@ -1,1 +1,20 @@
+/etc/passwd    ----stores basic information of each user account
+/etc/shadow     ---stores password and expiration information
+/etc/group      ---- stores group and member informations
+/etc/gshadow    ----- stores group password and group membership information
+
+id       -----check current login user
+useradd suraj    ---- user is created
+passwd suraj     ----- set password  for user
+useradd -m -d /home/samdb -s /bin/bash -G developers -c "DB user" sam      ----create "sam" user with home directory as "/home/samdb" with "/bin/bash" as shell added user in develpers group and user dicription is "DB user"
+groupadd developers     --- create developers group
+useradd -g developers suraj   ---- add user to group
+useradd -g developers -G operations suraj  ---- add user to primary group = developers and secondary group = operations
+usermod -g developers ram         ------ change primary group of user
+usermod -aG  operations ram       ------ add secondary group to esisting user
+usermod -d /home/ramnew  ram      ----- change user home directory 
+usermod -s /bin/sh ram            ------ change shell for user   (note -: need to run as root user)
+usermod -e 2025-10-15 ram         ------ set expiration for user  
+usermod -L ram                    ----- lock user account
+usermod -U ram                    ----- unlock user account
 
