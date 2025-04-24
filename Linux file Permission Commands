@@ -1,0 +1,8 @@
+chmod 666 file1.txt   ------ change file permission r== 4 w==2 x==1
+chmod u+w file1.txt   ---- change file permissions
+chown john:itdep file1   -----chenge ownership of file
+chown john:itdep /tmp/directory   ---change ownership directory
+chown -R john:itdep /tmp/directory    ---change ownership of directory recursively (make changes inside directory as well)
+
+
+
