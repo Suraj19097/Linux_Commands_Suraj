@@ -18,3 +18,8 @@ usermod -e 2025-10-15 ram         ------ set expiration for user
 usermod -L ram                    ----- lock user account
 usermod -U ram                    ----- unlock user account
 
+visudo file-:
+ansible ALL=(ALL) ALL     ----- allow the user ansible to run all commands from anywhere as root
+ansible ALL=(ALL) NOPASSWD:ALL     ------ allow ansible user to run all commands from anywhere as root but without password prompt
+ram ALL= (ALL) /usr/bin/yum, /sbin/mount, /sbin/ifconfig      ---- allow user ram to run yum, mount, and ifconfig from anywhere
+ram ALL= (ALL) /usr/bin/yum, /sbin/mount, /sbin/ifconfig  NOPASSWD:/sbin/parted    ---- allow user ram to run yum, mount, and ifconfig from anywhere with password prompt but parted command without prompt
