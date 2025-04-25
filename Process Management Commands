@@ -1,1 +1,36 @@
+Viewing Processes-:
+ps -a       ----- all process from all terminal
+ps -aux     ----- list all process with user name
+ps -ef       ----- list of all processess
+ps -ef | grep -i sshd    ----show process running for sshd 
+top            ------ real time process monitroing
+lsof -i :<port>	    ------------- Find process using a specific port
+netstat -plnt	      ------------- Shows processes listening on ports
+
+Managing Processes-:
+kill <PID>	   ------ Terminates the process with the given PID
+kill -9 <PID>	    ------- Forcefully kills the process
+pkill <name>	    ----- Kills all processes matching the name
+killall <name>	   ------ Kills all processes with exact name match
+nice -n <priority> <command>	     ------------ Starts a process with a specific priority
+renice -n <priority> -p <PID>	       ---------- Changes priority of a running process
+
+Process Status & Details-:
+jobs	                   ------ Lists background jobs in current shell
+bg %<job_id>	           ------- Resumes a job in the background
+fg %<job_id>	            -------- Brings a job to the foreground
+watch <command>	            ------ Repeats a command at fixed intervals
+strace -p <PID>	           ------- Traces system calls of a process
+lsof -p <PID>	             ---- Lists open files for a process
+uptime	                ------- Shows system load and uptime
+vmstat	                ------- Reports memory, CPU, I/O stats
+
+Monitoring Resource Usage-: 
+top / htop	        -------- Monitor live CPU, memory usage per process
+free -h	           --------- Displays memory usage
+iostat	           --------- CPU and disk I/O stats
+sar	        ----------- Historical performance data (from sysstat)
+mpstat	     ------------ CPU usage statistics
+
+
 
