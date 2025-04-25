@@ -39,6 +39,19 @@ grep "error.$" access.log        ----print lines ending with this pattern
 grep ".$" access.log             ---- print lines ending with .
 
 
+find command-:
+find . -name technology.txt  ---- search file in current location
+find /home -name technology.txt      --- serch file in home directory
+find /home -type d -name videos      ---- find directory which name video
+find /home -type f -name "*.txt"      ---- find txt file in homedirectory
+find . -type f -empty              ---- show all empty files
+find . -type f -name ".*"          ---- show all hidden files
+find /home -ntime -2     ---- show files which are modified 2 days ago
+find /home -nmin -60     ------ show files which are modified last 60 min
+find /home -size +10M     ------ search ffiles whose size more than 10 MB
+
+
+
 
 
 
