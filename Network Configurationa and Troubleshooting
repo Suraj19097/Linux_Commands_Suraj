@@ -1,1 +1,17 @@
+hostnamectl set-hostname linuxguru.example.com    ---- to set hostname for linux machine
 
+cd /etc/sysconfig/network-scripts      ----- alll network configuration are avilable
+nmcli dev status  ---list out avilable interfaces
+nmcli con show    ---- connected interfaces
+nmcli con show <interface name>   --- network interface properties
+ip addr show <interface name>   ---- to get detils about interface
+nmcli con add con-name <interface name> type ethernet ifname <interface name> ip4 192.168.1.4 gw4 192.168.1.1   ------ configure ip address for interface
+nmcli con up <interface name>    ---- up the interface
+
+chnage ip address of existing interface-:
+nmcli con mod <interface name> ipv4.addresses "<new ipaddress>"     ---- change ip address of existinginterface
+nmcli con up <interface name>    ---- up the interface
+
+nmcli con del <interface name>   ---- delete interface
+
+Routing table-:
