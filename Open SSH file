@@ -1,0 +1,17 @@
+open ssh options are controlled through the /etc/ssh/sshd_config file
+1. disable root login -: 
+   vi /etc/ssh/sshd_config   and make changes in the file "PermitRootLogin no"
+2. Allow only specific users and groups 
+   vi /etc/ssh/sshd_config     and make changes in "AllowUsers ramesh john jason"  and for groups "AllowGroups sysadmin abd"
+3. Deny only specific users and groups 
+   vi /etc/ssh/sshd_config     and make changes in "DenyUsers ramesh john jason"  and for groups "DenyGroups sysadmin abd"
+4. Change ssh port number-:
+   vi /etc/ssh/sshd_config     and make changes "port 222"
+5. change login grace time (when you ssh the server you have 2 minutes to login the server if you dont successful login 2 minutes ssh will disconnect.
+   vi /etc/ssh/sshd_confi    and make chenges in " LoginGraceTime 1m"  chnaged grace time to 1 min
+6. restrict the interface(ip address) to login (listenAddress)-:
+if you have multiple interfaces on the server that are configured to different ip addresses you want everyone will not login the server with all ipaddress
+  vi /etc/ssh/sshd_confi    and make changes 
+  ListenAddress  192.168.1.20
+  ListneAddress 192.168.1.29
+
