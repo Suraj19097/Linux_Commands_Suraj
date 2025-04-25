@@ -50,6 +50,69 @@ find /home -ntime -2     ---- show files which are modified 2 days ago
 find /home -nmin -60     ------ show files which are modified last 60 min
 find /home -size +10M     ------ search ffiles whose size more than 10 MB
 
+resync commands-:
+rsync options source and destinations     ----- copy files and directory to remotely or locally
+rsync -avh   test.tar /root/           ----- copied file with preservered permissions
+rsync -avh /root/pkgs/  /tmp/backups/     ---- copy all files from directory to destination
+rsync -avh /root/pkg/ root@192.168.1.1:/tmp/backup/       -----copied files from local to remote location
+
+
+SCP command-:
+scp <filename> root@192.168.1.2:/tmp     ----- copy files to remote location
+
+filesystem related commands-:
+df -h         ----- filesystem space occupied
+df -m        ---- show space usage in mb
+fdisk       ----- used for partition
+mkfs       ------ make filesystem
+  mkfs -t ext4 /dev/sdg2
+fsck        ------- check and repair filesystem
+du -sh <path>	     ---------- Show size of a directory or file
+
+file -s /dev/sdX	      ------- Detect filesystem type
+df -T	        ---------------- Show type of mounted filesystems
+mount -t <fstype>	             -------------- Mount specific type (e.g., ext4, vfat, ntfs)
+fsck /dev/sdXn	-------------- Filesystem consistency check (run when unmounted)
+e2fsck /dev/sdXn	------------ Check and repair ext2/ext3/ext4 filesystems
+xfs_repair /dev/sdXn	----------- Repair XFS filesystem
+
+disk related commands-:
+du -ak <filename>    ---- check size of file
+lsblk	     ----------- List block devices (disks and partitions)
+fdisk -l	    ------------ how partition tables (MBR-based disks)
+parted -l	    ------------- Show partition info (supports GPT too)
+df -h	         ------------ Show disk usage of mounted filesystems
+blkid	         ----------- Display UUID and type of filesystems
+mount /dev/sdXn /mnt	  ---------- Mount a filesystem
+umount /mnt	      --------- Unmount a filesystem
+mkfs.ext4 /dev/sdXn	     ----------- Create EXT4 filesystem on a partition
+tune2fs -l /dev/sdXn	    ------------- Show filesystem parameters
+
+df -h	       ------------- Show disk usage in human-readable format
+df -T	        ----------- Show disk usage with filesystem type
+du -sh *	----------- Show size of files/directories in current dir
+du -h <path>	     ---------- Show space used by a specific directory
+ncdu	            ---------- Interactive disk usage analyzer (install: sudo apt install ncdu)
+
+lsblk	       ----------- List block devices (disks and partitions)
+blkid	       ------------ Show UUID, type, and label of block devices
+fdisk -l	    ----------- Show partition table (for MBR disks)
+parted -l	     ------------ List partitions, supports GPT too
+ls /dev/sd*	    ------------ List all disk and partition devices
+ls -lh /dev/disk/by-*	   ---------- View disk devices by ID, UUID, label, etc.
+
+fdisk /dev/sdX	    -------- Partition a disk (MBR)
+gdisk /dev/sdX	     -------- Partition a disk (GPT)
+parted /dev/sdX	     ---------- Advanced partitioning (supports GPT/MBR)
+mkfs.ext4 /dev/sdX1	   ---------- Format partition to ext4
+mkfs.xfs /dev/sdX1	    ---------- Format partition to XFS
+mkfs.vfat /dev/sdX1	    ---------- Format partition to FAT32
+mkfs.ntfs /dev/sdX1	     ----------- Format to NTFS (needs ntfs-3g)
+
+sort-:
+sort <filename>    ---- arrange alphabaticaaly 
+
+sed-:
 
 
 
