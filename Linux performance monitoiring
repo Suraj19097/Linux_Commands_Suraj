@@ -1,0 +1,34 @@
+CPU Monitoring-:
+top	           ----- Real-time view of CPU usage per process
+htop	         ------ Enhanced version of top with better UI (requires install)
+mpstat -P ALL 1	        --------- CPU usage per core (from sysstat package)
+uptime	            -------- Load average and uptime info
+sar -u 1 3	        ---------- Historical CPU usage (from sysstat)
+
+Memory Monitoring-:
+free -m	     --------- Show used/free memory in MB
+vmstat 1	         ----------- System memory, CPU, and process stats
+cat /proc/meminfo	     ------------ Detailed memory info
+top / htop	        ------------- Also show memory usage per process
+
+Disk Monitoring-:
+df -h	          ------------- Disk usage of mounted filesystems
+du -sh *	        ----------- Size of directories/files in current location
+iostat -dx 1	      ---------- Disk I/O stats (from sysstat)
+iotop	          ------------- Real-time disk I/O per process (needs root)
+lsblk	           ----------- Block device layout and sizes
+
+Network Monitoring-:
+ip -s link	    --------- Show network interface stats
+ss -tuln	      ------------ Show open sockets and listening ports
+iftop	       ------------- Real-time bandwidth usage by connection (needs root)
+nethogs	        ---------- Bandwidth usage per process (needs root)
+ping <host>	        --------- Check latency and packet loss
+netstat -i	     --------- Interface statistics (legacy)
+
+Process & Resource Monitoring-:
+ps aux --sort=-%mem	      ---------- Top memory-consuming processes
+ps aux --sort=-%cpu	       --------- Top CPU-consuming processes
+top / htop	            -------- Monitor real-time resource usage
+nice / renice	     ------------ Adjust process priority
+kill -9 <PID>	      --------- Kill resource-hogging processes
