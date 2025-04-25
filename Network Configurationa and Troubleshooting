@@ -3,6 +3,7 @@ hostnamectl set-hostname linuxguru.example.com    ---- to set hostname for linux
 cd /etc/sysconfig/network-scripts      ----- alll network configuration are avilable
 nmcli dev status  ---list out avilable interfaces
 nmcli con show    ---- connected interfaces
+nmcli device show	    ----Show detailed info (NetworkManager systems)
 nmcli con show <interface name>   --- network interface properties
 ip addr show <interface name>   ---- to get detils about interface
 nmcli con add con-name <interface name> type ethernet ifname <interface name> ip4 192.168.1.4 gw4 192.168.1.1   ------ configure ip address for interface
@@ -15,3 +16,40 @@ nmcli con up <interface name>    ---- up the interface
 nmcli con del <interface name>   ---- delete interface
 
 Routing table-:
+netstat -rn     ------ print routing table
+ip route show    ---- show ip route
+sudo ip route add <destination_network>/<subnet> via <gateway_ip> dev <interface>    ----add static route
+      e.g-:  sudo ip route add 192.168.2.0/24 via 192.168.1.1 dev eth0
+sudo ip route del <destination>/<subnet>     -----delete route
+     e.g-: sudo ip route del 192.168.2.0/24
+traceroute <destination>        ----- trace routing 
+ss -tuln	       ----- See active ports/connections
+tcpdump	         ------ Analyze packet flow and routing issues
+
+connection checking-:
+ping <host>	          -------- Check connectivity to a host
+traceroute <host>	       --------- Show path to host (network hops)
+tracepath <host>	        ---------- Similar to traceroute (no root needed)
+curl <url>	             ----------- Send HTTP request and get response
+wget <url>	    -------------- Download files via HTTP/HTTPS/FTP
+telnet <host> <port>	    ---------- Check if a TCP port is open
+nc -zv <host> <port>	     ------------ Scan/check open ports (netcat)
+
+ DNS-:
+nslookup <domain>	       --------- Query DNS records
+dig <domain>	           ---------- Detailed DNS lookup
+host <domain>	            -------- Resolve domain to IP
+resolvectl status	        ---------- View DNS settings (systemd-resolved)
+cat /etc/resolv.conf	    --------- Shows DNS servers being used
+
+Network and monitorinf-:
+netstat -tuln	           ------ List open ports and listening services (legacy)
+ss -tuln	               ------- Modern replacement for netstat
+ss -tnp	                  --------- See active TCP connections with PID
+tcpdump -i <interface>	   -------- Capture and analyze packets
+iftop	                      -------- Real-time bandwidth usage per connection
+nethogs	                   --------- Bandwidth usage per process
+ip -s link	               ---------- Show interface stats (sent/received packets)
+
+
+  
