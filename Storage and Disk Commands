@@ -1,1 +1,59 @@
+MBR (Master Boot Record) and GPT (GUID Partition Table) is essential when working with disks in Linux or any OS
+Feature	                         MBR	                                           GPT
+Full Form	             Master Boot Record	                             GUID Partition Table
+Introduced	            1983 (DOS era)	                               Early 2000s (part of UEFI)
+Disk Size Support	       Up to 2 TB	                                    Up to 9.4 ZB (Zettabytes)
+Partition Limit	      Max 4 primary partitions (3 primary + 1 extended with logical)	  Up to 128 partitions (no need for extended/logical)
+Boot Mode	               BIOS	                                                         UEFI (can work with BIOS in some cases)
+Redundancy	           No backup partition table	                       Stores backup at the end of the disk
+CRC Protection	       ❌ No integrity check	                           ✅ Uses CRC for corruption detection
+Compatibility	           Older systems (BIOS-based)	                      Modern systems (UEFI-based)
+
+how to identify what partitioning stanadard is used
+lsblk -f         ------ If it says Partition Table: gpt or msdos, that tells you GPT or MBR.
+fdisk -l | less   ---- check Disk label type if it is dos then it is MBR and if it is gpt then it is GPT
+
+parted <diskname> print   ---- check disk information   eg-: diskname- /dev/sdb
+parted <diskname> unit MB print   --- check disk size in MB
+parted <diskname> mklabel msdos     ---- check partition table to MBR format
+
+create MBR partition-:
+parted <diskname>   ---- command to create partition
+  then entre details as 
+    parted mkpart
+    partition type  primary
+    filesystem type  xfs
+    start     2024s
+    end       100MB
+this will create partition and then run "udevadm settle"
+
+Create GPT partition-: 
+parted <diskname> mklabel gpt
+ then it will ask to confirm press yes 
+parted <diskname>   ---- command to create partition
+  parted mkpart
+  partition name mypart
+  filesystem type  xfs
+  start     2024s
+  end       200MB
+this will create partition and then run "udevadm settle"
+
+
+create filesystem-:
+mkfs -t xfs <partition name>   ---- format a filesystem   partion name = /dev/sdb1
+
+mount filesystem-:
+mkdir /dblog   --- create root directory 
+mount /dev/sdb1 /dblog/    ----- mount filesystem
+
+mount filesystem persistentely (permanently)-: 
+vi /etc/fstab     ---- open file
+add below lines
+/dev/sdb1      /dblog      xfs   defaults  0 0
+then reload demon
+systemctl daemon-reload  
+
+
+
+
 
